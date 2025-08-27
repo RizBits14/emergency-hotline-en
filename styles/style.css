@@ -1,0 +1,19 @@
+body{
+    background-color: #41FF6B1A;
+}
+
+.navbar{
+    display: flex;
+}
+
+.navbar-title{
+    font-weight: bold;
+    color: #006747;
+}
+
+.navbar-right{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
