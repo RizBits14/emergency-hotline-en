@@ -289,3 +289,4 @@ document.getElementById('clear-history-mobile').addEventListener('click', functi
   historyListMobile.innerHTML = ''
   clearBtnMobile.innerText = 'Clear'
 })
+
