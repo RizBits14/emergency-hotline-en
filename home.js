@@ -180,7 +180,7 @@ document.getElementById('copy-btn1').addEventListener('click', function() {
     navigator.clipboard.writeText(hotlineNumber).then(() => {
         alert('Number has been copied')
     }).catch(err => {
-        alert('Cannot copy: ' + err);
+        alert('Cannot copy: ' + err)
     })
 })
 document.getElementById('copy-btn2').addEventListener('click', function() {
@@ -188,7 +188,7 @@ document.getElementById('copy-btn2').addEventListener('click', function() {
     navigator.clipboard.writeText(hotlineNumber).then(() => {
         alert('Number has been copied')
     }).catch(err => {
-        alert('Cannot copy: ' + err);
+        alert('Cannot copy: ' + err)
     })
 })
 document.getElementById('copy-btn3').addEventListener('click', function() {
@@ -196,7 +196,7 @@ document.getElementById('copy-btn3').addEventListener('click', function() {
     navigator.clipboard.writeText(hotlineNumber).then(() => {
         alert('Number has been copied')
     }).catch(err => {
-        alert('Cannot copy: ' + err);
+        alert('Cannot copy: ' + err)
     })
 })
 document.getElementById('copy-btn4').addEventListener('click', function() {
@@ -204,7 +204,7 @@ document.getElementById('copy-btn4').addEventListener('click', function() {
     navigator.clipboard.writeText(hotlineNumber).then(() => {
         alert('Number has been copied')
     }).catch(err => {
-        alert('Cannot copy: ' + err);
+        alert('Cannot copy: ' + err)
     })
 })
 document.getElementById('copy-btn5').addEventListener('click', function() {
@@ -212,7 +212,7 @@ document.getElementById('copy-btn5').addEventListener('click', function() {
     navigator.clipboard.writeText(hotlineNumber).then(() => {
         alert('Number has been copied')
     }).catch(err => {
-        alert('Cannot copy: ' + err);
+        alert('Cannot copy: ' + err)
     })
 })
 document.getElementById('copy-btn6').addEventListener('click', function() {
@@ -220,7 +220,7 @@ document.getElementById('copy-btn6').addEventListener('click', function() {
     navigator.clipboard.writeText(hotlineNumber).then(() => {
         alert('Number has been copied')
     }).catch(err => {
-        alert('Cannot copy: ' + err);
+        alert('Cannot copy: ' + err)
     })
 })
 document.getElementById('copy-btn7').addEventListener('click', function() {
@@ -228,7 +228,7 @@ document.getElementById('copy-btn7').addEventListener('click', function() {
     navigator.clipboard.writeText(hotlineNumber).then(() => {
         alert('Number has been copied')
     }).catch(err => {
-        alert('Cannot copy: ' + err);
+        alert('Cannot copy: ' + err)
     })
 })
 document.getElementById('copy-btn8').addEventListener('click', function() {
@@ -236,7 +236,7 @@ document.getElementById('copy-btn8').addEventListener('click', function() {
     navigator.clipboard.writeText(hotlineNumber).then(() => {
         alert('Number has been copied')
     }).catch(err => {
-        alert('Cannot copy: ' + err);
+        alert('Cannot copy: ' + err)
     })
 })
 document.getElementById('copy-btn9').addEventListener('click', function() {
@@ -244,38 +244,48 @@ document.getElementById('copy-btn9').addEventListener('click', function() {
     navigator.clipboard.writeText(hotlineNumber).then(() => {
         alert('Number has been copied')
     }).catch(err => {
-        alert('Cannot copy: ' + err);
+        alert('Cannot copy: ' + err)
     })
 })
 
 // Card History
-const historyList = document.getElementById('call-history-list');
-const clearBtn = document.getElementById('clear-history').querySelector('span');
+const historyList = document.getElementById('call-history-list')
+const clearBtn = document.getElementById('clear-history').querySelector('span')
+
+const historyListMobile = document.getElementById('call-history-list-mobile')
+const clearBtnMobile = document.getElementById('clear-history-mobile').querySelector('span')
 
 document.querySelectorAll('.history-btn').forEach(btn => {
   btn.addEventListener('click', function () {
-    const card = btn.closest('.card-body');
-    const serviceName = card.querySelector('.service-name').innerText;
-    const serviceNumber = card.querySelector('.service-number').innerText;
+    const card = btn.closest('.card-body')
+    const serviceName = card.querySelector('.service-name').innerText
+    const serviceNumber = card.querySelector('.service-number').innerText
 
-    const now = new Date();
-    const options = { hour: '2-digit', minute: '2-digit' }; 
-    const callTime = now.toLocaleTimeString([], options);
-    const entry = document.createElement('div');
+    const now = new Date()
+    const options = { hour: '2-digit', minute: '2-digit' } 
+    const callTime = now.toLocaleTimeString([], options)
+    const entry = document.createElement('div')
 
-    entry.className = "call-entry";
+    entry.className = "call-entry"
     entry.innerHTML = `
       <div class="details">
         <div class="name">${serviceName}</div>
         <div class="number">${serviceNumber}</div>
       </div>
       <div class="time">${callTime}</div>
-    `;
-    historyList.prepend(entry);
-  });
-});
+    `
+
+    historyList.prepend(entry.cloneNode(true))
+    historyListMobile.prepend(entry)
+  })
+})
 
 document.getElementById('clear-history').addEventListener('click', function () {
-  historyList.innerHTML = '';
-  clearBtn.innerText = ' Clear';
-});
+  historyList.innerHTML = ''
+  clearBtn.innerText = 'Clear'
+})
+
+document.getElementById('clear-history-mobile').addEventListener('click', function () {
+  historyListMobile.innerHTML = ''
+  clearBtnMobile.innerText = 'Clear'
+})
