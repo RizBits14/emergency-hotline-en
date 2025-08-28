@@ -247,3 +247,35 @@ document.getElementById('copy-btn9').addEventListener('click', function() {
         alert('Cannot copy: ' + err);
     })
 })
+
+// Card History
+const historyList = document.getElementById('call-history-list');
+const clearBtn = document.getElementById('clear-history').querySelector('span');
+
+document.querySelectorAll('.history-btn').forEach(btn => {
+  btn.addEventListener('click', function () {
+    const card = btn.closest('.card-body');
+    const serviceName = card.querySelector('.service-name').innerText;
+    const serviceNumber = card.querySelector('.service-number').innerText;
+
+    const now = new Date();
+    const options = { hour: '2-digit', minute: '2-digit' }; 
+    const callTime = now.toLocaleTimeString([], options);
+    const entry = document.createElement('div');
+
+    entry.className = "call-entry";
+    entry.innerHTML = `
+      <div class="details">
+        <div class="name">${serviceName}</div>
+        <div class="number">${serviceNumber}</div>
+      </div>
+      <div class="time">${callTime}</div>
+    `;
+    historyList.prepend(entry);
+  });
+});
+
+document.getElementById('clear-history').addEventListener('click', function () {
+  historyList.innerHTML = '';
+  clearBtn.innerText = ' Clear';
+});

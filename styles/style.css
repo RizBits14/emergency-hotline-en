@@ -28,3 +28,29 @@ body{
     font-weight: bold;
     font-size: 1.5rem;
 }
+
+.call-entry {
+  padding: 12px;
+  border: 1px solid #e5e7eb;   
+  border-radius: 8px;          
+  background-color: #f9fafb;   
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05); 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;          
+}
+
+.call-entry .details {
+  display: flex;
+  flex-direction: column;
+}
+
+.call-entry .details .name {
+  font-weight: 600;           
+}
+
+.call-entry .details .number {
+  font-size: 14px;
+  color: #4b5563;        
+}
