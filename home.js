@@ -14,7 +14,6 @@ function cardCall(event){
         negCount -= 20
         navbarCoin.innerText = negCount 
 
-        // find the card that triggered the call
         const card = event.target.closest('.card-body')
         const shortName = card.querySelector('.service-name').innerText
         const hotline = card.querySelector('.service-number').innerText
