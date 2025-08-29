@@ -171,10 +171,12 @@ document.querySelectorAll('.history-btn').forEach(btn => {
 
 document.getElementById('clear-history').addEventListener('click', function () {
   historyList.innerHTML = ''
+  historyListMobile.innerHTML = ''
   clearBtn.innerText = 'Clear'
 })
 
 document.getElementById('clear-history-mobile').addEventListener('click', function () {
   historyListMobile.innerHTML = ''
+  historyList.innerHTML = ''
   clearBtnMobile.innerText = 'Clear'
 })
