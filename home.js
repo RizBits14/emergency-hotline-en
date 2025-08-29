@@ -6,12 +6,20 @@ function addHeart(){
     navbarHeart.innerText = counting    
 }
 
-function cardCall(){
+function cardCall(event){
     const navbarCoin = document.getElementById('navbar-coin')
     let negCount = parseInt(navbarCoin.innerText)
+
     if(negCount >= 20){
-        negCount = negCount - 20
+        negCount -= 20
         navbarCoin.innerText = negCount 
+
+        // find the card that triggered the call
+        const card = event.target.closest('.card-body')
+        const shortName = card.querySelector('.service-name').innerText
+        const hotline = card.querySelector('.service-number').innerText
+
+        alert(`📞 Calling: ${shortName} at ${hotline}`)
     }
     else{
         alert('Cant make call')
